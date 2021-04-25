@@ -32,14 +32,7 @@ public class TechSupportSystem implements Challenge {
             System.out.println("\nTotal tickets processed: " + Ticket.getTicketNumber());
             System.out.println("\nTotal tickets assigned: " + numTickets);*/
     }
-    public static String getOperatorID(LinkedList<Operator> ID, String id) {
-        for (Operator operator : ID) {
-            if (operator.getId().equals(id))
-                return operator.getName();
 
-        }
-        return null;
-    }
 
     public String read() throws FileNotFoundException {
         scanner = new Scanner(file);
@@ -76,7 +69,7 @@ public class TechSupportSystem implements Challenge {
         output.println("-----------------\n");
     }
 
-    /*@Override
+ /*  *//* *//**//*@Override
     public void getAgents() throws IOException {
         String fileName;
         do {
@@ -89,7 +82,7 @@ public class TechSupportSystem implements Challenge {
         agentThree = readAgent();
 
         input.close();
-    }*/
+    }*//**//*
 
     public Operator readAgent() {
         String name = input.nextLine();
@@ -99,7 +92,7 @@ public class TechSupportSystem implements Challenge {
         return new Operator(name, id, specialist);
     }
 
-    /*@Override
+    *//**//*@Override
     public void processTickets() throws IOException {
         String fileName;
         Ticket currentTicket;
@@ -121,7 +114,7 @@ public class TechSupportSystem implements Challenge {
             lastTicket = currentTicket;
         }
         input.close();
-    }*/
+    }*//**//*
 
     private Ticket readTicket() {
         User request;
@@ -164,6 +157,6 @@ public class TechSupportSystem implements Challenge {
         }
         ticket.setAgent(assign);
         System.out.println("ticket asiggned to " + assign.getName() + ".");
-        numTickets++;
-    }
+        numTickets++;*//*
+    }*/
 }

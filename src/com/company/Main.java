@@ -25,15 +25,16 @@ public class Main {
         return true;
     }
 
-    public static void changeAgent() throws IOException {
-        if (isOperator("1")) {
+    /*public static void changeAgent() throws IOException {
+       // if (isOperator("1")) {
 
         }
-    }
+    }*/
 
 
     public static void main(String[] args) throws IOException {
         TechSupportSystem tcc = new TechSupportSystem("FAQ.txt");
+        Operator operator = new Operator();
         LinkedList<Operator> agent = new LinkedList<>();
         agent.add(new Operator("1", "Артем", "Оператор 1"));
         agent.add(new Operator("2", "Виктор", "Оператор 2"));
@@ -53,22 +54,26 @@ public class Main {
             System.out.println("Выберите: \n - 1 - Вызвать специалиста \n - 2 - Посмотреть FAQ \n - 3 - Посмотреть лог чата");
             String makeChoice = reader.readLine();
             if (makeChoice.equals("1")) {
-                System.out.println("Здраствуйте, я ваш специалист" + ", меня зовут " + tcc.getOperatorID(agent, "1") + "," + " можете задать вопрос!");
+                System.out.println("Здраствуйте, я ваш специалист" + ", меня зовут " + operator.getOperatorID(agent, "1") + "," + " можете задать вопрос!");
                 System.out.println("Задать вопрос: ");
                 choice = reader.readLine();
                 System.out.println("Подождите....");
-                System.out.println("\n - 1 - Принять \n - 2 - Перенаправить другому специалисту \n - 3 - Завершить и записать");
-                String makeChoice1 = reader.readLine();
-                if (makeChoice.equals("1")) {
-                    System.out.println("Ответ на вопрос: ");
-                    choice = reader.readLine();
-                } else if (makeChoice1.equals("2")) {
-                    System.out.println("----");
-                } else if (makeChoice1.equals("3"))
-                    System.out.println("Завершить и записать");
+                while (true) {
+                    System.out.println("\n - 1 - Принять \n - 2 - Перенаправить другому специалисту \n - 3 - Завершить и записать");
+                    String makeChoice1 = reader.readLine();
+                    if (makeChoice1.equals("1")) {
+                        System.out.println("Ответ на вопрос: ");
+                        choice = reader.readLine();
+                    } else if (makeChoice1.equals("2")) {
+                        System.out.println("----");
+                    } else if (makeChoice1.equals("3")) {
+                        System.out.println("Завершить и записать");
+                        break;
+                    }
+                }
             } else if (makeChoice.equals("2")) {
                 System.out.println("Чтение из файла");
-                tcc.write("FAQ.txt");
+                System.out.println(tcc.read());
             } else if (makeChoice.equals("3")) {
                 System.out.println("Посмотреть лог чата");
             }

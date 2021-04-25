@@ -1,5 +1,7 @@
 package strategy;
 
+import java.util.LinkedList;
+
 public class Operator {
     private String name;
     private String id;
@@ -10,9 +12,23 @@ public class Operator {
         this.id = id;
         this.specialist = specialist;
     }
-    public Operator copy(){
+
+    public Operator() {
+
+    }
+
+    public Operator copy() {
         Operator copyAgent = new Operator(name, id, specialist);
         return copyAgent;
+    }
+
+    public static String getOperatorID(LinkedList<Operator> ID, String id) {
+        for (Operator operator : ID) {
+            if (operator.getId().equals(id))
+                return operator.getName();
+
+        }
+        return null;
     }
 
     public String getName() {
@@ -26,6 +42,7 @@ public class Operator {
     public String getSpecialist() {
         return specialist;
     }
+
     public String toString() {
         String str = "Agent's name: " + this.name
                 + "\nAgent's ID: " + this.id
